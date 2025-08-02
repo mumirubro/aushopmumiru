@@ -23,7 +23,7 @@ except ImportError as e:
     from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes, CallbackQueryHandler
 
 # Bot configuration
-BOT_TOKEN = "7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE"
+BOT_TOKEN = "7913916344:AAG-nAdQjIRmSZ5vTgAUW9aY8zy8NRS4w8Q"
 
 # Install Brotli if not available
 try:
