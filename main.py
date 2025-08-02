@@ -23,7 +23,7 @@ except ImportError as e:
     from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes, CallbackQueryHandler
 
 # Bot configuration
-BOT_TOKEN = "7913916344:AAG-nAdQjIRmSZ5vTgAUW9aY8zy8NRS4w8Q"
+BOT_TOKEN = "7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE"
 
 # Install Brotli if not available
 try:
@@ -1111,11 +1111,24 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.edit_message_text("💳 **Check a card (REAL TRANSACTION):**\nUse: `/sh card|mm|yy|cvv`\n\n💡 Example: `/sh 4532123456789012|12|25|123`\n\n⚠️ **WARNING**: This processes real payments!", parse_mode='Markdown')
 
 async def setup_bot():
-    """Setup bot with proper webhook cleanup"""
+    """Setup bot with proper webhook cleanup and conflict prevention"""
     application = Application.builder().token(BOT_TOKEN).build()
 
-    # Force delete any existing webhooks
-    await application.bot.delete_webhook(drop_pending_updates=True)
+    try:
+        # Force delete any existing webhooks and clear pending updates
+        await application.bot.delete_webhook(drop_pending_updates=True)
+        
+        # Wait a moment for cleanup to complete
+        await asyncio.sleep(2)
+        
+        # Clear any remaining updates
+        try:
+            await application.bot.get_updates(timeout=1, limit=100)
+        except Exception:
+            pass
+            
+    except Exception as e:
+        logger.warning(f"Webhook cleanup warning: {e}")
 
     # Add handlers
     application.add_handler(CommandHandler("start", start))
@@ -1138,15 +1151,40 @@ def main():
     try:
         # Setup and run bot
         application = asyncio.get_event_loop().run_until_complete(setup_bot())
-        application.run_polling(allowed_updates=Update.ALL_TYPES, drop_pending_updates=True)
+        print("✅ Bot setup completed, starting polling...")
+        
+        # Run with conflict detection
+        application.run_polling(
+            allowed_updates=Update.ALL_TYPES, 
+            drop_pending_updates=True,
+            timeout=30,
+            pool_timeout=30
+        )
+        
     except Exception as e:
-        print(f"Bot startup failed: {e}")
-        print("Trying to cleanup and restart...")
-        import time
-        time.sleep(5)
-        # Try again
-        application = asyncio.get_event_loop().run_until_complete(setup_bot())
-        application.run_polling(allowed_updates=Update.ALL_TYPES, drop_pending_updates=True)
+        if "Conflict" in str(e) or "409" in str(e):
+            print("❌ Bot conflict detected! Another instance is already running.")
+            print("💡 Solution: Stop other bot instances or wait 5 minutes before restarting.")
+            print(f"Full error: {e}")
+        else:
+            print(f"❌ Bot startup failed: {e}")
+            print("🔄 Trying to cleanup and restart...")
+            
+            # Wait longer for cleanup
+            import time
+            time.sleep(10)
+            
+            try:
+                # Try one more time with aggressive cleanup
+                application = asyncio.get_event_loop().run_until_complete(setup_bot())
+                application.run_polling(
+                    allowed_updates=Update.ALL_TYPES, 
+                    drop_pending_updates=True,
+                    timeout=30
+                )
+            except Exception as retry_error:
+                print(f"❌ Retry failed: {retry_error}")
+                print("🛑 Bot stopped. Please check for other running instances.")
 
 if __name__ == '__main__':
     main()
