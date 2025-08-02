@@ -1,0 +1,63 @@
+🤖 Real Shopify Checker Bot starting...
+⚠️  WARNING: This bot processes REAL transactions!
+2025-07-19 10:30:37,131 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/deleteWebhook "HTTP/1.1 200 OK"
+2025-07-19 10:30:37,318 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getMe "HTTP/1.1 200 OK"
+2025-07-19 10:30:37,503 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/deleteWebhook "HTTP/1.1 200 OK"
+2025-07-19 10:30:37,505 - telegram.ext.Application - INFO - Application started
+2025-07-19 10:30:48,065 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:30:58,253 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:31:08,439 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:31:18,628 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:31:28,817 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:31:39,005 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:31:49,194 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:31:59,390 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:32:09,577 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:32:19,767 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:32:29,953 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:32:40,139 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:32:48,130 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:32:48,876 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/sendMessage "HTTP/1.1 200 OK"
+2025-07-19 10:32:51,395 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:32:51,396 - telegram.ext.Application - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/home/runner/workspace/main.py", line 654, in seturl_command
+    await update.message.reply_text(f"✅ **URL Set Successfully!**\n🔗 Domain: `{url}`\n⚠️ **WARNING**: Real transactions will be processed on this site!", parse_mode='Markdown')
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'reply_text'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telegram/ext/_application.py", line 1309, in process_update
+    await coroutine
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telegram/ext/_handlers/basehandler.py", line 158, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/main.py", line 656, in seturl_command
+    await update.message.reply_text("❌ **Invalid URL format!**\nExample: `/seturl https://example.myshopify.com`", parse_mode='Markdown')
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'reply_text'
+2025-07-19 10:33:01,342 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:33:02,091 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/sendMessage "HTTP/1.1 200 OK"
+2025-07-19 10:33:02,259 - __main__ - INFO - Found product variant: 46366167171326 - $10.00
+2025-07-19 10:33:03,008 - __main__ - INFO - Cart add successful: 200
+2025-07-19 10:33:08,402 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/editMessageText "HTTP/1.1 200 OK"
+2025-07-19 10:33:11,533 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:33:21,719 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:33:30,767 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:33:31,512 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/sendMessage "HTTP/1.1 200 OK"
+2025-07-19 10:33:34,196 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:33:34,565 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/sendMessage "HTTP/1.1 200 OK"
+2025-07-19 10:33:34,698 - __main__ - INFO - Found product variant: 46366167171326 - $10.00
+2025-07-19 10:33:35,455 - __main__ - INFO - Cart add successful: 200
+2025-07-19 10:33:42,474 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/editMessageText "HTTP/1.1 200 OK"
+2025-07-19 10:33:44,384 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:33:48,310 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:33:49,056 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/sendMessage "HTTP/1.1 200 OK"
+2025-07-19 10:33:51,800 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:33:52,183 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/sendMessage "HTTP/1.1 200 OK"
+2025-07-19 10:33:52,309 - __main__ - INFO - Found product variant: 46366167171326 - $10.00
+2025-07-19 10:33:52,995 - __main__ - INFO - Cart add successful: 200
+2025-07-19 10:33:58,506 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/editMessageText "HTTP/1.1 200 OK"
+2025-07-19 10:34:01,989 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"

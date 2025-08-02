@@ -1,0 +1,17 @@
+🤖 Real Shopify Checker Bot starting...
+⚠️  WARNING: This bot processes REAL transactions!
+2025-07-19 10:36:44,422 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/deleteWebhook "HTTP/1.1 200 OK"
+2025-07-19 10:36:44,608 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getMe "HTTP/1.1 200 OK"
+2025-07-19 10:36:44,795 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/deleteWebhook "HTTP/1.1 200 OK"
+2025-07-19 10:36:44,797 - telegram.ext.Application - INFO - Application started
+2025-07-19 10:36:51,476 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:36:52,221 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/sendMessage "HTTP/1.1 200 OK"
+2025-07-19 10:36:58,661 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
+2025-07-19 10:36:59,434 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/sendMessage "HTTP/1.1 200 OK"
+2025-07-19 10:36:59,746 - __main__ - INFO - Found product variant: 46366167171326 - $10.00
+2025-07-19 10:37:00,397 - __main__ - INFO - Cart add successful: 200
+/home/runner/workspace/main.py:504: RuntimeWarning: coroutine 'RealShopifyChecker.format_result' was never awaited
+  return f"❌ **MODERN CHECKOUT ERROR**: {str(e)[:100]} | Time: {elapsed_time:.2f}s"
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2025-07-19 10:37:05,606 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/editMessageText "HTTP/1.1 200 OK"
+2025-07-19 10:37:08,850 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7913916344:AAFOB3jL33PKd0fY6Z5BnpZWrkWMhRSqDWE/getUpdates "HTTP/1.1 200 OK"
